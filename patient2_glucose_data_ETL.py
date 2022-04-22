@@ -22,7 +22,10 @@ def fetch_and_process_glucose_data():
     if not s3:
         raise Exception('credentials are expired')
 
-    obj = s3.get_object(Bucket='d1namo', Key='diabetes_subset_pictures-glucose-food-insulin/002/glucose.csv')
+    obj = s3.get_object(
+        Bucket='d1namo',
+        Key='diabetes_subset_pictures-glucose-food-insulin/002/glucose.csv'
+    )
     df = pd.read_csv(obj['Body'])
     df.index = pd.to_datetime(df['time'])
     df['join'] = df.index.strftime('%H:%M')
