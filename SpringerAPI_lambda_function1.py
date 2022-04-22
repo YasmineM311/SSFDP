@@ -72,5 +72,3 @@ def lambda_handler(event, context):
                'abstract': sqlalchemy.types.Text(), 'journal': sqlalchemy.types.Text(),
                'url': sqlalchemy.types.Text()}
     )
-
-
