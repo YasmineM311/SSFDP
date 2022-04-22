@@ -6,9 +6,10 @@ from airflow.models import Variable
 from airflow.hooks.postgres_hook import PostgresHook
 
 def fetch_sensor_data():
-    '''
-    Fetches patient's sensor data.
-    '''
+    """
+    1.makes a connection to the S3 bucket 'd1namo'
+    2.Fetches patient's sensor data from the corresponding file URI
+    """
     import pandas as pd
     # Connect to S3
     s3 = S3Hook('s3_conn').get_conn()
@@ -19,7 +20,7 @@ def fetch_sensor_data():
     df.to_csv(Variable.get('summary_data_location'))
 
 def aggregate_sensor_data():
-    '''
+    """
     Aggregates the data by
     calculating the median for every five minutes worth of data.
 
@@ -27,7 +28,7 @@ def aggregate_sensor_data():
     other data sources.
 
     Returns 5-minute aggregated data with additional 'join' column
-    '''
+    """
     import pandas as pd
 
     my_variable = Variable.get('summary_data_location')
@@ -39,7 +40,11 @@ def aggregate_sensor_data():
     df_aggregated.to_csv(Variable.get('summary_agg_location'))
 
 def push_to_RDS():
-    #from sqlalchemy import create_engine
+    """
+    1.Creates a connection to the Postgres database instance
+    2.fetches the aggregated data from the corresponding variable
+    3.pushes the data to the database
+    """
     import pandas as pd
 
     postgres_hook = PostgresHook('postgres_conn')
