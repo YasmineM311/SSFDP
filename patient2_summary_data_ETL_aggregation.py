@@ -5,29 +5,32 @@ from airflow.hooks.S3_hook import S3Hook
 from airflow.models import Variable
 from airflow.hooks.postgres_hook import PostgresHook
 
+
 def fetch_sensor_data():
     """
     1.makes a connection to the S3 bucket 'd1namo'
     2.Fetches patient's sensor data from the corresponding file URI
+    3.stores data as a csv file in a predefined variable in airflow's environment
     """
     import pandas as pd
     # Connect to S3
     s3 = S3Hook('s3_conn').get_conn()
     if not s3:
         raise Exception('credentials have expired')
-    obj = s3.get_object(Bucket='d1namo', Key='diabetes_subset_sensor_data/002/sensor_data/2014_10_04-17_43_12/2014_10_04-17_43_12_Summary.csv')
+    obj = s3.get_object(
+        Bucket='d1namo',
+        Key='diabetes_subset_sensor_data/002/sensor_data/2014_10_04-17_43_12/2014_10_04-17_43_12_Summary.csv'
+    )
     df = pd.read_csv(obj['Body'])
     df.to_csv(Variable.get('summary_data_location'))
 
+
 def aggregate_sensor_data():
     """
-    Aggregates the data by
-    calculating the median for every five minutes worth of data.
-
-    Creates a column 'join' that contains hour:minute timestamp to facilitate merging with
-    other data sources.
-
-    Returns 5-minute aggregated data with additional 'join' column
+    1.fetches csv file from the predefined variable in airflow's environment and stores it as a dataframe
+    2.aggregates the data by calculating the median for every five minutes worth of data
+    3.creates join-on columns to facilitate merging with other data sources
+    4.stores aggregated data as a csv file in a predefined variable in airflow's environment
     """
     import pandas as pd
 
@@ -39,12 +42,14 @@ def aggregate_sensor_data():
     df_aggregated['date'] = df_aggregated.index.strftime('%d-%m-%Y')
     df_aggregated.to_csv(Variable.get('summary_agg_location'))
 
+
 def push_to_RDS():
     """
     1.Creates a connection to the Postgres database instance
-    2.fetches the aggregated data from the corresponding variable
-    3.pushes the data to the database
+    2.fetches the aggregated data from the predefined variable in airflow's environment and stores it a dataframe
+    3.pushes the data into the database
     """
+
     import pandas as pd
 
     postgres_hook = PostgresHook('postgres_conn')
@@ -56,6 +61,7 @@ def push_to_RDS():
     my_variable = Variable.get('summary_agg_location')
     df = pd.read_csv(my_variable)
     df.to_sql(con=engine, schema='d1namo', name="patient2_summary_data_aggregated", if_exists="append", index=False)
+
 
 dag = DAG(
     'patient2_sensor_data_ETL_aggregation',
@@ -80,5 +86,3 @@ push_to_RDS_task = PythonOperator(
     dag=dag)
 
 fetch_sensor_data_task >> aggregate_sensor_data_task >> push_to_RDS_task
-
-

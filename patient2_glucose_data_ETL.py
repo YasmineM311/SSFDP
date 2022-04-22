@@ -5,15 +5,16 @@ from airflow.hooks.S3_hook import S3Hook
 from airflow.models import Variable
 from airflow.hooks.postgres_hook import PostgresHook
 
+
 def fetch_and_process_glucose_data():
-    '''
-    Fetches patient's glucose measurements.
-
-    Creates a column 'join' that contains hour:minute timestamp to facilitate merging with
-    other data sources.
-
-    Returns glucose measurement data with additional 'join' column
-    '''
+    """
+    1.makes a connection to the S3 bucket 'd1namo'
+    2.Fetches patient's glucose measurement data from the corresponding file URI
+    3.creates join-on column to facilitate merging with other sources
+    4.creates a binary column 'hypoglycemia' with the value 1 for low blood glucose levels
+    and 0 otherwise, for machine learning purposes
+    5.stores data as a csv file in a predefined variable in airflow's environment
+    """
 
     import pandas as pd
 
@@ -28,7 +29,14 @@ def fetch_and_process_glucose_data():
     df['hypoglycemia'] = [0 if x > 4 else 1 for x in df['glucose']]
     df.to_csv(Variable.get('glucose_data_location'))
 
+
 def push_to_RDS():
+    """
+    1.Creates a connection to the Postgres database instance
+    2.fetches the transformed data from the predefined variable in airflow's environment and stores it a dataframe
+    3.pushes the data into the database
+    """
+
     import pandas as pd
 
     postgres_hook = PostgresHook('postgres_conn')
@@ -39,7 +47,9 @@ def push_to_RDS():
 
     my_variable = Variable.get('glucose_data_location')
     df = pd.read_csv(my_variable)
-    df.to_sql(con=engine, schema='d1namo', name="patient2_glucose_data_processed_with_class", if_exists="append", index=False)
+    df.to_sql(con=engine, schema='d1namo', name="patient2_glucose_data_processed_with_class",
+              if_exists="append", index=False)
+
 
 dag = DAG(
     'patient2_glucose_data_ETL',
@@ -58,4 +68,3 @@ push_to_RDS_task = PythonOperator(
     dag=dag)
 
 fetch_and_process_glucose_data_task >> push_to_RDS_task
-
