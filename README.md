@@ -73,7 +73,7 @@ Author: Philipp Eble
 ## Static data
 
 #### Static_data.ipynb
-Description & goal: Migrate data form the API to a single S3 AWS folder.
+Description & goal: Migrate data from the API of each source into a single S3 AWS folder.
 
 Remarks: The AWS credentials have to be added, in order for the connection to the s3 bucket to be established
 
