@@ -1,9 +1,13 @@
 # SSFDP
 This a project to create a data lake and data warehouse for a hypothetical high tech healthcare company that aims at developing new technologies to improve the quality of life of diabetic patients
+
 ## Sources
 ### Springer Nature API
-- Lambda function 1, with diabetes AND wearables as keywords: https://github.com/YasmineM311/SSFDP/blob/main/SpringerAPI_lambda_function1.py
-- Lambda function 2, with diabetes as keyword: https://github.com/YasmineM311/SSFDP/blob/main/SpringerAPI_lambda_function2.py
+*SpringerAPI_lambda_function1.py*
+Description & goal: Lambda function triggered weekly to query the Springer API, with 'diabetes AND wearables' as a search keyword. It aims to retreive the most recent publications about using wearable technology in diabetes management
+
+*SpringerAPI_lambda_function2.py*
+Description & goal: Lambda function triggered weekly to query the Springer API, with 'diabetes' as a search keyword. It aims to retreive the most recent publications about diabetes in general
 
 ### D1namo 
 - Migration of data to an S3 bucket: 
