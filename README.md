@@ -37,19 +37,37 @@ Description & goal: A DAG to process raw sensor data from an accelerometer and t
 - DAG 3, for continuous glucose monitoring data: https://github.com/YasmineM311/SSFDP/blob/main/patient2_glucose_data_ETL.py 
 
 ### Clinical Trials
-1. Docker airflow composition: https://github.com/YasmineM311/SSFDP/blob/main/docker-compose.yaml
-Usage: Configuration file for the initiliastion of the Apache Airflow services in the Docker container
-
-2. ClinicalTrials.gov API request script: https://github.com/YasmineM311/SSFDP/blob/main/client.py
-Usage: Class definition for the API requests for the API URLs 
 
 
-3. https://github.com/YasmineM311/SSFDP/blob/main/utils.py 
-Usage: Definition of the functions for handling HTTP requests and decoding it into JSON or CSV format
+#### docker-compose.yaml
+
+Description & goal: Configuration file for the initiliastion of the Apache Airflow services in the Docker container
+Remarks: 'docker-compose airflow init' has to be run the first time of execution to create the Docker container. 
+
+Author: Philipp Eble
+
+#### client.py
+
+Description & goal: Class definition for the API requests for the API URL (Full Studies or Study Fields)
+Remarks: For using related DAGs you have to use the 'CSV' format in the query. For other purposes a JSON format can also be selected. 
+
+Author: Philipp Eble
 
 
-4. ClinicalTrials.gov API DAG: https://github.com/YasmineM311/SSFDP/blob/main/results_dag.py 
-Usage: DAG for running API calls, temporarily storaging output in a dataframe, establishing the connection and finally dumping data into the database
+#### utils.py
+
+Description & goal: Definition of the functions for handling HTTP requests and decoding it into JSON or CSV format
+Remarks: None 
+
+Author: Philipp Eble
+
+
+#### results_dag.py 
+
+Description & goal: DAG for running API calls, temporarily storaging output in a dataframe, establishing the connection and finally dumping data into the database
+Remarks: The name of the postgres database must be adjusted and must be a saved connection in the Apachae Airflow webserver to ensure authorization.  
+
+Author: Philipp Eble
 
  
 ### Static data
