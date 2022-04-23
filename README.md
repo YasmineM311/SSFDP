@@ -30,14 +30,29 @@ Author: Yasmine Mohamed
 
 #### patient2_accel_data_ETL_aggregation.py
 
-Description & goal: A DAG to process raw sensor data from an accelerometer and then push the processed data into a postgres instance
+Description & goal: A DAG to process patient data obtained from a sensor (accelerometer) and then push the processed data into a postgres instance
 
+Remarks: To be able to run the dag, connections to the postgres instance and s3 bucket must be added. In addition, the referenced variables must be added to Airflow's environment
 
-- DAG 2, for summarized sensor data: https://github.com/YasmineM311/SSFDP/blob/main/patient2_summary_data_ETL_aggregation.py
-- DAG 3, for continuous glucose monitoring data: https://github.com/YasmineM311/SSFDP/blob/main/patient2_glucose_data_ETL.py 
+Author: Yasmine Mohamed
+
+#### patient2_summary_data_ETL_aggregation.py
+
+Description & goal: A DAG to process patient data obtained from different wearable sensors and then push the processed data into a postgres instance
+
+Remarks: To be able to run the dag, connections to the postgres instance and s3 bucket must be added. In addition, the referenced variables must be added to Airflow's environment
+
+Author: Yasmine Mohamed
+
+#### patient2_glucose_data_ETL.py
+
+Description & goal: A DAG to process patient blood glucose level measurements obtained from a wearable device and then push the processed data into a postgres instance
+
+Remarks: To be able to run the dag, connections to the postgres instance and s3 bucket must be added. In addition, the referenced variables must be added to Airflow's environment
+
+Author: Yasmine Mohamed
 
 ## Clinical Trials
-
 
 #### docker-compose.yaml
 
@@ -52,7 +67,6 @@ Description & goal: Class definition for the API requests for the API URL (Full 
 Remarks: For using related DAGs you have to use the 'CSV' format in the query. For other purposes a JSON format can also be selected. 
 
 Author: Philipp Eble
-
 
 #### utils.py
 
