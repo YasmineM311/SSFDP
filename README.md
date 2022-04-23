@@ -1,8 +1,8 @@
 # SSFDP
 This a project to create a data lake and data warehouse for a hypothetical high tech healthcare company that aims at developing new technologies to improve the quality of life of diabetic patients
 
-## Sources
-### Springer Nature API
+# Sources
+## Springer Nature API
 #### SpringerAPI_lambda_function1.py 
 
 Description & goal: Lambda function triggered weekly to query the Springer API, with 'diabetes AND wearables' as a search keyword. It aims to retreive the most recent publications about using wearable technology in diabetes management.
@@ -19,7 +19,7 @@ Author: Yasmine Mohamed
 
 Remarks: For the lambda function to work, the postgres database credentials have to be added to the lambda function's environment. Additionally, cloud 9 layer with the required packages (pandas, requests, psycopg2, sqlalchemy) had to be added to the lambda function.
 
-### D1namo 
+## D1namo 
 #### migrating the d1namo dataset to an s3 bucket.ipynb
 
 Description & goal: To migrate the d1namo dataset into an s3 bucket to be further processes using Apache Airflow ETL pipelines
@@ -36,7 +36,7 @@ Description & goal: A DAG to process raw sensor data from an accelerometer and t
 - DAG 2, for summarized sensor data: https://github.com/YasmineM311/SSFDP/blob/main/patient2_summary_data_ETL_aggregation.py
 - DAG 3, for continuous glucose monitoring data: https://github.com/YasmineM311/SSFDP/blob/main/patient2_glucose_data_ETL.py 
 
-### Clinical Trials
+## Clinical Trials
 
 
 #### docker-compose.yaml
@@ -70,5 +70,5 @@ Remarks: The name of the postgres database must be adjusted and must be a saved 
 Author: Philipp Eble
 
  
-### Static data
+## Static data
 Migration of data to an S3 bucket: https://github.com/YasmineM311/SSFDP/blob/main/Static_data.ipynb
