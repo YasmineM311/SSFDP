@@ -86,3 +86,4 @@ push_to_RDS_task = PythonOperator(
     dag=dag)
 
 fetch_sensor_data_task >> aggregate_sensor_data_task >> push_to_RDS_task
+

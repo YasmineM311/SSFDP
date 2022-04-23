@@ -107,3 +107,4 @@ push_to_RDS_task = PythonOperator(
     dag=dag)
 
 fetch_accel_data_task >> aggregate_accel_data_task >> create_join_columns_task >> push_to_RDS_task
+
