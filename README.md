@@ -24,6 +24,8 @@ Remarks: For the lambda function to work, the postgres database credentials have
 
 Description & goal: To migrate the d1namo dataset into an s3 bucket
 
+Remarks: The AWS credentials have to be added, in order for the connection to the s3 bucket to be established
+
 Author: Yasmine Mohamed
 
 
