@@ -3,7 +3,7 @@ This a project to create a data lake and data warehouse for a hypothetical high 
 
 ## Sources
 ### Springer Nature API
-*SpringerAPI_lambda_function1.py* 
+####SpringerAPI_lambda_function1.py 
 
 Description & goal: Lambda function triggered weekly to query the Springer API, with 'diabetes AND wearables' as a search keyword. It aims to retreive the most recent publications about using wearable technology in diabetes management.
 
@@ -11,7 +11,7 @@ Author: Yasmine Mohamed
 
 Remarks: For the lambda function to work, the postgres database credentials have to be added to the lambda function's environment. Additionally, cloud 9 layer with the required packages (pandas, requests, psycopg2, sqlalchemy) had to be added to the lambda function.
 
-*SpringerAPI_lambda_function2.py*
+####SpringerAPI_lambda_function2.py*
 
 Description & goal: Lambda function triggered weekly to query the Springer API, with 'diabetes' as a search keyword. It aims to retreive the most recent publications about diabetes in general.
 
@@ -20,7 +20,7 @@ Author: Yasmine Mohamed
 Remarks: For the lambda function to work, the postgres database credentials have to be added to the lambda function's environment. Additionally, cloud 9 layer with the required packages (pandas, requests, psycopg2, sqlalchemy) had to be added to the lambda function.
 
 ### D1namo 
-*migrating the d1namo dataset to an s3 bucket.ipynb*
+####migrating the d1namo dataset to an s3 bucket.ipynb
 
 Description & goal: To migrate the d1namo dataset into an s3 bucket
 
