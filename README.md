@@ -4,9 +4,11 @@ This a project to create a data lake and data warehouse for a hypothetical high 
 ## Sources
 ### Springer Nature API
 *SpringerAPI_lambda_function1.py* 
+
 Description & goal: Lambda function triggered weekly to query the Springer API, with 'diabetes AND wearables' as a search keyword. It aims to retreive the most recent publications about using wearable technology in diabetes management
 
 *SpringerAPI_lambda_function2.py*
+
 Description & goal: Lambda function triggered weekly to query the Springer API, with 'diabetes' as a search keyword. It aims to retreive the most recent publications about diabetes in general
 
 ### D1namo 
