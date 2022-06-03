@@ -45,10 +45,7 @@ for word in words:
     query = """SELECT {0}, COUNT(abstract) + COUNT(title) AS {1}
                FROM "SpringerPublications"."diabetesandwearables" 
                WHERE title ~* {0} OR abstract ~* {0}
-               AND date BETWEEN (current_date - interval '7 days') AND current_date;""".format(word,
-                                                                                               word[1:-1].replace(" ",
-                                                                                                                  "").replace(
-                                                                                                   "-", "_"))
+               AND date BETWEEN (current_date - interval '7 days') AND current_date;""".format(word, word[1:-1].replace(" ", "").replace("-", "_"))
     if query is not None:
         word_query_string.append(query)
 
