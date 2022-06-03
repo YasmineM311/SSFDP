@@ -10,10 +10,8 @@ The lambda function is triggered once weekly
 """
 
 import os
-import requests
 import pandas as pd
 from sqlalchemy import create_engine
-import sqlalchemy
 import psycopg2
 
 ## Creating connections to data lake and data warehouse
