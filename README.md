@@ -98,6 +98,17 @@ Remarks: The name of the postgres database must be adjusted and must be a saved 
 
 Author: Philipp Eble
 
+#### ClinicalTrials_DW_lambda_function.py
+
+Description & goal: 
+1. Establishes connections to the data lake and data warehouse postgres instances
+2. Queries the data lake's schema (ClinicalTrialsAPI) that has full information about diabetes clinical trials retrieved through the clinical trials API
+3. Creates a tables with only recent trials (last 4 years) in the data warehouse
+
+Remarks: For the lambda function to work, the postgres database credentials have to be added to the lambda function's environment. Additionally, cloud 9 layer with the required packages had to be added to the lambda function.
+
+Author: Yasmine Mohamed
+
  
 ## Static data
 
