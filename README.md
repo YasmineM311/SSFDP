@@ -19,6 +19,17 @@ Remarks: For the lambda function to work, the postgres database credentials have
 
 Author: Yasmine Mohamed
 
+#### SpringerAPI_DW_lambda_function.py
+
+Description & goal: This lambda function is triggered weekly to:
+1. Establish connections to the data lake and data warehouse postgres instances
+2. Query the data lake's schema (diabetesandwearables) that has full information about most recent publications retrieved through the Springer Nature API using the search words "diabetes" and "wearables"
+3. Create three tables in the data warehouse that provide useful insights
+
+Remarks: For the lambda function to work, the postgres database credentials have to be added to the lambda function's environment. Additionally, cloud 9 layer with the required packages (pandas, requests, psycopg2, sqlalchemy) had to be added to the lambda function and the execution timeout has to be extended to 1 minute.
+
+Author: Yasmine Mohamed
+
 ## D1namo 
 #### migrating the d1namo dataset to an s3 bucket.ipynb
 
