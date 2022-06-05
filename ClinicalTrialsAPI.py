@@ -1,5 +1,5 @@
 """
-Purpose: performs a monthly call to the Clinical Trials API
+Purpose: performs a monthly call to the Clinical Trials API and pushes the data to the data lake
 """
 
 import os
