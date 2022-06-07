@@ -81,7 +81,7 @@ Description and goal: A SageMaker studio notebook to develop machine learning mo
 
 Remarks: The credentials for the data warehouse need to be provided to export the data.
 
-Author: Yasmine
+Author: Yasmine Mohamed
 
 
 ## Clinical Trials
