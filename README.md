@@ -119,11 +119,11 @@ Remarks: The name of the postgres database must be adjusted and must be a saved 
 
 Author: Philipp Eble
 
-#### ClinicalTrialsAPI.py
+#### ClinicalTrialsAPI_lambda_function.py
 
-Description & goal: performs a monthly call to the Clinical Trials API and pushes the data to the data lake
+Description & goal: lambda function that performs a monthly call to the Clinical Trials API and pushes the data to the data lake
 
-Remarks: or the lambda function to work, the postgres database credentials have to be added to the lambda function's environment. Additionally, cloud 9 layer with the required packages had to be added to the lambda function.
+Remarks: for the lambda function to work, the postgres database credentials have to be added to the lambda function's environment. Additionally, cloud 9 layer with the required packages had to be added to the lambda function.
 
 Author: Yasmine Mohamed
 
