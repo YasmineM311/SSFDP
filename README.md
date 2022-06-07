@@ -63,6 +63,18 @@ Remarks: To be able to run the dag, connections to the postgres instance and s3 
 
 Author: Yasmine Mohamed
 
+#### d1namo_DW_lambda_function.py
+
+Description and goal: A lambda function that:
+1. establishes connections to data lake postgres instance, data warehouse postgres instance and s3 bucket.
+2. executes sql query that joins two tables from the data lake and push the combined data into:
+  a. the data warehouse to easily visualize and validate the data
+  b. the s3 bucket, to easily connect to amazon SageMaker, an AWS machine learning tool
+
+Remarks: For the lambda function to work, the postgres database credentials have to be added to the lambda function's environment. Additionally, cloud 9 layer with the required packages (pandas, requests, psycopg2, sqlalchemy) had to be added to the lambda function.
+
+Author: Yasmine Mohamed
+
 #### d1namo_ML_SageMaker.ipynb
 
 Description and goal: A SageMaker studio notebook to develop machine learning models to detect hypoglycemia based on sensor data. 
