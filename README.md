@@ -63,6 +63,15 @@ Remarks: To be able to run the dag, connections to the postgres instance and s3 
 
 Author: Yasmine Mohamed
 
+#### d1namo_ML_SageMaker.ipynb
+
+Description and goal: A SageMaker studio notebook to develop machine learning models to detect hypoglycemia based on sensor data. 
+
+Remarks: The credentials for the data warehouse need to be provided to export the data.
+
+Author: Yasmine
+
+
 ## Clinical Trials
 
 #### docker-compose.yaml
