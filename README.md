@@ -20,7 +20,7 @@ Below is the overall ETL process and the data lake/data warehouse architecture.
 
 <p align="center">
  <a href="" rel="noopener">
-<img src="https://github.com/YasmineM311/SSFDP/blob/main/images/SSFDP_datawarehouse_architechture.png" alt="Group logo" width="800" height="400">
+<img src="https://github.com/YasmineM311/SSFDP/blob/main/images/Picture6.png" alt="Group logo" width="800" height="300">
    <br></br>
   
 
