@@ -1,5 +1,11 @@
-# SSFDP
-This a project to create a data lake and data warehouse for a hypothetical high tech healthcare company that aims at developing new technologies to improve the quality of life of diabetic patients
+# Smart Solutions For Diabetic Patients
+SSFDP is a project to create a data lake and data warehouse for a hypothetical high tech healthcare company that aims at developing new technologies to improve the quality of life of diabetic patients
+
+<p align="center">
+  <a href="" rel="noopener">
+ <img src="https://github.com/YasmineM311/SSFDP/blob/main/images/SSFDP.png" alt="Group logo" width="800" height="200">
+    <br></br>
+
 
 # Sources
 ## Springer Nature API
