@@ -3,7 +3,7 @@ SSFDP is a project to create a data lake and data warehouse for a hypothetical h
 
 <p align="center">
   <a href="" rel="noopener">
- <img src="https://github.com/YasmineM311/SSFDP/blob/main/images/SSFDP.png" alt="Group logo" width="800" height="200">
+ <img src="https://github.com/YasmineM311/SSFDP/blob/main/images/SSFDP.png" alt="Group logo" width="800" height="500">
     <br></br>
 
 
