@@ -6,8 +6,25 @@ SSFDP is a project to create a data lake and data warehouse for a hypothetical h
  <img src="https://github.com/YasmineM311/SSFDP/blob/main/images/SSFDP.png" alt="Group logo" width="800" height="400">
     <br></br>
 
+  
+# Architechture
+The data lake and data warehouse were created using a variety of sources and tools. The sources include:
+  - the Springer Nature API, to stay up to date on the state of the art of diabetes research
+  - the Clinical Trials API, to stay up to date with ongoing diabetic clinical trials
+  - the World Bank data on diabetes prevalence worldwide
+  - the D1namo dataset which is an open source dataset collected from diabetic patients
+  
+These data sources were subjected to an ETL process using a variety of tools such as Amazon web services (AWS) lambda function, AWS SageMaker, Apache Airflow to be finally loaded into the data lake and data warehouse comprised of AWS RDS (PostgresSQL database) and Amazon S3 bucket. The data loaded into the date warehouse is then visualized using Tableau for stakeholders and decision makers.
+  
+Below is the overall ETL process and the data lake/data warehouse architecture.
 
-# Sources
+<p align="center">
+ <a href="" rel="noopener">
+<img src="https://github.com/YasmineM311/SSFDP/blob/main/images/SSFDP.png" alt="Group logo" width="800" height="400">
+   <br></br>
+  
+
+# Data Sources and relevant files
 ## Springer Nature API
 #### SpringerAPI_lambda_function1.py 
 
